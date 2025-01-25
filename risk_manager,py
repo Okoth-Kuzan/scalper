@@ -2,7 +2,6 @@ import MetaTrader5 as mt5
 
 def calculate_risk(symbol, lot_size):
     """Calculates the potential risk per trade."""
-    # ... (Same as before) ...
 
 def check_drawdown(symbol, max_drawdown):
     """Checks if the current drawdown exceeds the maximum allowed."""
