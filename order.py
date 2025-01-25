@@ -40,3 +40,21 @@ def close_position(position_id):
         print(f"Position closed: {position_id}")
     else:
         print(f"Position closing failed, error code =", mt5.last_error())
+        
+
+def modify_order(position_id, stoploss):
+    """Modifies an existing order."""
+    request = {
+        "action": mt5.TRADE_ACTION_DEAL,
+        "ticket": position_id,
+        "stoploss": stoploss,
+        "deviation": 10,
+        "magic": 234000,
+        "type_time": mt5.TIME_GTC,
+        "type_filling": mt5.ORDER_FILLING_RETURN,
+    }
+    result = mt5.order_send(request)
+    if result != None:
+        print(f"Order modified: {position_id}")
+    else:
+        print(f"Order modification failed, error code =", mt5.last_error())       
